@@ -1,8 +1,8 @@
 #include <assert.h>
 #include <algorithm>
 
-#include "Math.h"
-#include "Territory.h"
+#include "../include/Math.h"
+#include "../include/Territory.h"
 
 Territory::Territory(int width, int height) 
 	: width(width), height(height)

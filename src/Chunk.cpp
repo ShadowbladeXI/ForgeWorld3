@@ -1,4 +1,4 @@
-#include "Chunk.h"
+#include "../include/Chunk.h"
 
 Tile& Chunk::getTileAt(int inChunkX, int inChunkY)
 {

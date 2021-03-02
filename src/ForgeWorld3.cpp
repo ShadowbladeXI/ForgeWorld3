@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-#include "GameSession.h"
+#include "../include/GameSession.h"
 
 int main()
 {

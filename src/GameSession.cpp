@@ -1,4 +1,4 @@
-#include "GameSession.h"
+#include "../include/GameSession.h"
 
 GameSession::GameSession()
 	: universe(Universe()) {
