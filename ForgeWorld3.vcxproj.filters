@@ -15,51 +15,51 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ForgeWorld3.cpp">
+    <ClCompile Include="src\Chunk.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameSession.cpp">
+    <ClCompile Include="src\ForgeWorld3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Universe.cpp">
+    <ClCompile Include="src\GameSession.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Planet.cpp">
+    <ClCompile Include="src\Math.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Territory.cpp">
+    <ClCompile Include="src\Planet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Chunk.cpp">
+    <ClCompile Include="src\Territory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tile.cpp">
+    <ClCompile Include="src\Tile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Math.cpp">
+    <ClCompile Include="src\Universe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameSession.h">
+    <ClInclude Include="include\Chunk.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Universe.h">
+    <ClInclude Include="include\GameSession.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Planet.h">
+    <ClInclude Include="include\Math.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Territory.h">
+    <ClInclude Include="include\Planet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Chunk.h">
+    <ClInclude Include="include\Territory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Tile.h">
+    <ClInclude Include="include\Tile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Math.h">
+    <ClInclude Include="include\Universe.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
