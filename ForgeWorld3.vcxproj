@@ -144,6 +144,7 @@
     <ClCompile Include="GameSession.cpp" />
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="Planet.cpp" />
+    <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="Territory.cpp" />
     <ClCompile Include="Universe.cpp" />
@@ -153,6 +154,7 @@
     <ClInclude Include="GameSession.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="Planet.h" />
+    <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="Territory.h" />
     <ClInclude Include="Universe.h" />
