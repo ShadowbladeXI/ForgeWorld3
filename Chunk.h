@@ -5,7 +5,7 @@
 class Chunk
 {
 public:
-	static const unsigned short CHUNK_SIZE = 2 ^ 4;
+	static const int CHUNK_SIZE = 16;//2^4
 
 private:
 	Spot spots[CHUNK_SIZE][CHUNK_SIZE];

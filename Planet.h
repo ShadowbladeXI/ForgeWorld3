@@ -2,8 +2,9 @@
 
 #include "Territory.h"
 
-class Planet
-{
+class Planet {
+public:
+	Planet();
 private:
 	Territory testTerritory;
 };

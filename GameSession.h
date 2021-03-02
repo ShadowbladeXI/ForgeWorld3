@@ -4,6 +4,9 @@
 
 class GameSession
 {
+public:
+	GameSession();
+
 private:
 	Universe universe;
 };
