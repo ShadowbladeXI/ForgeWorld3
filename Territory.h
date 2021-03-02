@@ -4,23 +4,23 @@
 #include <tuple>
 
 #include "Chunk.h"
-#include "Spot.h"
+#include "Tile.h"
 
 class Territory
 {
 public:
 	Territory(int width, int height);
 
-	Spot getSpotAt(int x, int y);
+	void getTileAt(int x, int y, Tile&);
 
-	Chunk getChunkAt(int x, int y);
+	void getChunkAt(int x, int y, Chunk&);
 
-	std::tuple<Chunk, Spot> getChunkAndSpotAt(int x, int y);
+	void getChunkAndTileAt(int x, int y, Chunk& chunkOut, Tile& tileOut);
 
 private:
 	unsigned int width, height;
 	int chunkGridMinX, chunkGridMaxX, chunkGridMinY, chunkGridMaxY;
-	int spotGridMinX, spotGridMaxX, spotGridMinY, spotGridMaxY;
+	int tileGridMinX, tileGridMaxX, tileGridMinY, tileGridMaxY;
 	std::vector<std::vector<Chunk>> chunks;
 };
 

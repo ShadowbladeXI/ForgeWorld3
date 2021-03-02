@@ -1,6 +1,6 @@
 #include "Planet.h"
 
 Planet::Planet()
-: testTerritory(Territory(100, 100)){
+: testTerritory(Territory(100, 200)){
 
 }

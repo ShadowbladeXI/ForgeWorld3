@@ -1,14 +1,16 @@
 #pragma once
 
-#include "Spot.h"
+#include "Tile.h"
 
 class Chunk
 {
 public:
 	static const int CHUNK_SIZE = 16;//2^4
 
+	Tile& getTileAt(int inChunkX, int inChunkY);
+
 private:
-	Spot spots[CHUNK_SIZE][CHUNK_SIZE];
+	Tile tiles[CHUNK_SIZE][CHUNK_SIZE];
 
 };
 

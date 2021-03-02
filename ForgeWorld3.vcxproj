@@ -142,16 +142,18 @@
     <ClCompile Include="Chunk.cpp" />
     <ClCompile Include="ForgeWorld3.cpp" />
     <ClCompile Include="GameSession.cpp" />
+    <ClCompile Include="Math.cpp" />
     <ClCompile Include="Planet.cpp" />
-    <ClCompile Include="Spot.cpp" />
+    <ClCompile Include="Tile.cpp" />
     <ClCompile Include="Territory.cpp" />
     <ClCompile Include="Universe.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chunk.h" />
     <ClInclude Include="GameSession.h" />
+    <ClInclude Include="Math.h" />
     <ClInclude Include="Planet.h" />
-    <ClInclude Include="Spot.h" />
+    <ClInclude Include="Tile.h" />
     <ClInclude Include="Territory.h" />
     <ClInclude Include="Universe.h" />
   </ItemGroup>

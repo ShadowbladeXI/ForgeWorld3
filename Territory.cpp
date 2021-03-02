@@ -1,6 +1,7 @@
 #include <assert.h>
 #include <algorithm>
 
+#include "Math.h"
 #include "Territory.h"
 
 Territory::Territory(int width, int height) 
@@ -19,10 +20,10 @@ Territory::Territory(int width, int height)
 	chunkGridMinY = -heightChunks/2;
 	chunkGridMaxY = chunkGridMinY + heightChunks-1;
 
-	spotGridMinX = -width/2;
-	spotGridMaxX = spotGridMinX + width-1;
-	spotGridMinY = -height/2;
-	spotGridMaxY = spotGridMinY + height-1;
+	tileGridMinX = -width/2;
+	tileGridMaxX = tileGridMinX + width-1;
+	tileGridMinY = -height/2;
+	tileGridMaxY = tileGridMinY + height-1;
 
 	chunks.reserve(widthChunks);
 	for (int i = 0; i < widthChunks; ++i) {
@@ -34,18 +35,38 @@ Territory::Territory(int width, int height)
 		}
 		chunks.push_back(chunkRow);
 	}
+
+	//Test
+	//
+	Tile testTile;
+	getTileAt(40, 90, testTile);
+	Chunk testChunk;
+	getChunkAt(40, 90, testChunk);
+
 }
 
-Spot Territory::getSpotAt(int x, int y) {
-	return Spot();
+void Territory::getTileAt(int x, int y, Tile& tileOut) {
+	Chunk chunk;
+	Territory::getChunkAndTileAt(x, y, chunk, tileOut);
+	return;
 }
 
-Chunk Territory::getChunkAt(int x, int y)
+void Territory::getChunkAt(int x, int y, Chunk& chunkOut) {
+	Tile tile;
+	Territory::getChunkAndTileAt(x, y, chunkOut, tile);
+	return;
+}
+
+void Territory::getChunkAndTileAt(int x, int y, Chunk& chunkOut, Tile& tileOut)
 {
-	return Chunk();
-}
+	int chunkX, chunkY, inChunkX, inChunkY;
 
-std::tuple<Chunk, Spot> Territory::getChunkAndSpotAt(int x, int y)
-{
-	return std::tuple<Chunk, Spot>();
+	floor_div(x, Chunk::CHUNK_SIZE, chunkX, inChunkX);
+	floor_div(y, Chunk::CHUNK_SIZE, chunkY, inChunkY);
+	int chunkXIndex = chunkX-chunkGridMinX;
+	int chunkYIndex = chunkY-chunkGridMinY;
+	chunkOut = chunks[chunkXIndex][chunkYIndex];
+	tileOut = chunkOut.getTileAt(inChunkX, inChunkY);
+
+	return;
 }

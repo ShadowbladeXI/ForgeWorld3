@@ -1,5 +1,5 @@
 #pragma once
-class Spot
+class Tile
 {
 };
 
