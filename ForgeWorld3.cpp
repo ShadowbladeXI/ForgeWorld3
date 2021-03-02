@@ -3,9 +3,13 @@
 
 #include <iostream>
 
+#include "GameSession.h"
+
 int main()
 {
-    std::cout << "Hello World!\n";
+    std::cout << "Hello ForgeWorld!\n";
+
+    GameSession testSession = GameSession();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
