@@ -1,5 +1,7 @@
 #pragma once
-class Tile
-{
+
+
+class Tile{
+private:
 };
 

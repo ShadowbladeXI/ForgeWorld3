@@ -21,23 +21,40 @@
   <ItemGroup>
     <ClCompile Include="include\Window.h" />
     <ClCompile Include="src\Chunk.cpp" />
+    <ClCompile Include="src\Dimension.cpp" />
+    <ClCompile Include="src\DimensionedQuantity.cpp" />
     <ClCompile Include="src\ForgeWorld3.cpp" />
     <ClCompile Include="src\GameSession.cpp" />
     <ClCompile Include="src\Math.cpp" />
     <ClCompile Include="src\Planet.cpp" />
+    <ClCompile Include="src\Resource.cpp" />
+    <ClCompile Include="src\ResourceList.cpp" />
+    <ClCompile Include="src\ResourceManager.cpp" />
+    <ClCompile Include="src\ResourceQuantity.cpp" />
     <ClCompile Include="src\Territory.cpp" />
     <ClCompile Include="src\Tile.cpp" />
+    <ClCompile Include="src\Unit.cpp" />
     <ClCompile Include="src\Universe.cpp" />
     <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Chunk.h" />
+    <ClInclude Include="include\Dimension.h" />
+    <ClInclude Include="include\DimensionedQuantity.h" />
     <ClInclude Include="include\GameSession.h" />
     <ClInclude Include="include\Math.h" />
     <ClInclude Include="include\Planet.h" />
+    <ClInclude Include="include\Resource.h" />
+    <ClInclude Include="include\ResourceList.h" />
+    <ClInclude Include="include\ResourceManager.h" />
+    <ClInclude Include="include\ResourceQuantity.h" />
     <ClInclude Include="include\Territory.h" />
     <ClInclude Include="include\Tile.h" />
+    <ClInclude Include="include\Unit.h" />
     <ClInclude Include="include\Universe.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
