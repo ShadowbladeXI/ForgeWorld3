@@ -2,14 +2,36 @@
 //
 
 #include <iostream>
+#include <stdio.h>
+#include <fcntl.h>
+#include <io.h>
+#include <Windows.h>
 
 #include "../include/GameSession.h"
+#include "../include/Window.h"
 
-int main()
-{
+int WINAPI wWinMain(_In_ HINSTANCE hInstance,
+                    _In_opt_ HINSTANCE hPrevInstance,
+                    _In_ LPWSTR lpCmdLine,
+                    _In_ int nCmdShow) {
+    AllocConsole();
+
+    HANDLE handle_out = GetStdHandle(STD_OUTPUT_HANDLE);
+    int hCrt = _open_osfhandle((long)handle_out, _O_TEXT);
+    FILE* hf_out = _fdopen(hCrt, "w");
+    setvbuf(hf_out, NULL, _IONBF, 1);
+    *stdout = *hf_out;
+
+    HANDLE handle_in = GetStdHandle(STD_INPUT_HANDLE);
+    hCrt = _open_osfhandle((long)handle_in, _O_TEXT);
+    FILE* hf_in = _fdopen(hCrt, "r");
+    setvbuf(hf_in, NULL, _IONBF, 128);
+    *stdin = *hf_in;
+
     std::cout << "Hello ForgeWorld!\n";
 
     GameSession testSession = GameSession();
+    Window window = Window(hInstance, hPrevInstance, lpCmdLine, nCmdShow);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
