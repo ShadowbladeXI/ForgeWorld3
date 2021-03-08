@@ -11,7 +11,7 @@ Window::Window(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR lpCmdLine, in
     Window::createWindow(hInstance, hPrevInstance, lpCmdLine, nCmdShow);
 }
 
-void __stdcall Window::createWindow(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR lpCmdLine, int nCmdShow)
+void WINAPI Window::createWindow(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR lpCmdLine, int nCmdShow)
 {
     const wchar_t CLASS_NAME[] = L"Sample Window Class";
 
