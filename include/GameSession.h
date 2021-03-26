@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Universe.h"
+#include "ResourceList.h"
+#include "ResourceManager.h"
 
 class GameSession
 {
@@ -9,5 +11,6 @@ public:
 
 private:
 	Universe universe;
+	ResourceList resourceList;
 };
 

@@ -2,9 +2,10 @@
 
 #include <vector>
 
-#include "Unit.h"
+#include "MetricUnit.h"
 #include "Dimension.h"
 #include "Resource.h"
+#include "ResourceQuantity.h"
 
 typedef long ResourcesInternalType;//Specify the internal type used for all resources
 class ResourceList {
@@ -13,9 +14,14 @@ public:
 
 	size_t getSize() const;
 	const Resource<ResourcesInternalType>& get(size_t) const;
+	ResourceQuantity<ResourcesInternalType> generateNewResource(size_t, DimensionedQuantity<ResourcesInternalType>) const;
 private:
-	Unit<ResourcesInternalType> kilogramm;
-	Dimension<ResourcesInternalType> mass;
 	std::vector<Resource<ResourcesInternalType>> list;
+
+private:
+	MetricUnit gramm;
+	Dimension<ResourcesInternalType> mass;
+public:
+	const DimensionedUnit<ResourcesInternalType>& massGramm;
 };
 

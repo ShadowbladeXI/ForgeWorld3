@@ -16,6 +16,20 @@ ResourceManager::ResourceManager(const ResourceList& resourceList)
 	resourceQuantityList.shrink_to_fit();//TODO: Check if this is necessary (due to reserve at the beginning)
 }
 
+const ResourceQuantity<ResourcesInternalType>& ResourceManager::get(size_t i) const{
+	return resourceQuantityList[i];
+}
+
+ResourceManagerReturn ResourceManager::add(size_t i, const ResourceQuantity<ResourcesInternalType>& toAdd) {
+	ResourceQuantity<ResourcesInternalType>& resource = resourceQuantityList.at(i);
+	if(resource.getQuantity() < -toAdd.getQuantity()) {
+		return errorNotEnoughResources;
+	} else {
+		resource += toAdd;
+		return success;
+	}
+}
+
 void ResourceManager::printResourceQuantities() const {
 
 	for(size_t i = 0; i < resourceQuantityList.size(); i++) {
