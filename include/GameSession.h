@@ -3,6 +3,7 @@
 #include "Universe.h"
 #include "ResourceList.h"
 #include "ResourceManager.h"
+#include "MapObjectTypesManager.h"
 
 class GameSession
 {
@@ -12,5 +13,6 @@ public:
 private:
 	Universe universe;
 	ResourceList resourceList;
+	MapObjectTypesManager mapObjectTypesManager;
 };
 

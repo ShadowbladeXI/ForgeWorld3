@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <iterator>
 
 #include "MetricUnit.h"
 #include "Dimension.h"
@@ -15,8 +16,10 @@ public:
 	size_t getSize() const;
 	const Resource<ResourcesInternalType>& get(size_t) const;
 	ResourceQuantity<ResourcesInternalType> generateNewResource(size_t, DimensionedQuantity<ResourcesInternalType>) const;
+
+	~ResourceList();
 private:
-	std::vector<Resource<ResourcesInternalType>> list;
+	std::vector<Resource<ResourcesInternalType>*> list;
 
 private:
 	MetricUnit gramm;

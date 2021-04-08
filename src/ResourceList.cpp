@@ -2,16 +2,16 @@
 
 ResourceList::ResourceList() 
 	: gramm(MetricUnit("g"))
-	, mass(Dimension<ResourcesInternalType>(gramm, 1000))//Initialize mass dimension with mg as smalles unit)$
+	, mass(Dimension<ResourcesInternalType>(gramm, 1000000))//Initialize mass dimension with ug as smalles unit)$
 	, massGramm(mass.getStandardDimensionedUnit())
-	, list(std::vector<Resource<ResourcesInternalType>>())
+	, list(std::vector<Resource<ResourcesInternalType>*>())
 {
 	//TODO: Add capacity reserve for "list"
 	
 	//HACK: Test initialization with some example resources
-	list.push_back(*(new Resource<ResourcesInternalType>("Coal", mass)));
-	list.push_back(*(new Resource<ResourcesInternalType>("Iron", mass)));
-	list.push_back(*(new Resource<ResourcesInternalType>("Steel", mass)));
+	list.push_back(new Resource<ResourcesInternalType>("Coal", mass));
+	list.push_back(new Resource<ResourcesInternalType>("Iron", mass));
+	list.push_back(new Resource<ResourcesInternalType>("Steel", mass));
 
 	list.shrink_to_fit();
 	
@@ -22,9 +22,15 @@ size_t ResourceList::getSize() const{
 }
 
 const Resource<ResourcesInternalType>& ResourceList::get(size_t i) const {
-	return list[i];
+	return *list[i];
 }
 
 ResourceQuantity<ResourcesInternalType> ResourceList::generateNewResource(size_t i, DimensionedQuantity<ResourcesInternalType> quantity) const {
 	return ResourceQuantity<ResourcesInternalType>(get(i), quantity);
+}
+
+ResourceList::~ResourceList() {
+	for(size_t i = 0; i<list.size(); ++i) {
+		delete list[i];
+	}
 }

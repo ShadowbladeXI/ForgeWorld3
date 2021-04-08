@@ -5,7 +5,7 @@
 class Planet {
 public:
 	Planet();
-private:
+
 	Territory testTerritory;
 };
 

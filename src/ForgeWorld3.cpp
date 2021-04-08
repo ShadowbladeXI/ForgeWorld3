@@ -30,7 +30,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance,
 
     std::cout << "Hello ForgeWorld!\n";
 
-    GameSession testSession = GameSession();
+    GameSession testSession{};
     Window window = Window(hInstance, hPrevInstance, lpCmdLine, nCmdShow);
 }
 

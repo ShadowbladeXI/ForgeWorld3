@@ -58,6 +58,6 @@ inline std::string DimensionedUnit<InternalType>::generateString(const InternalT
 
 template<typename InternalType>
 inline DimensionedQuantity<InternalType> DimensionedUnit<InternalType>::generateQuantity(double amount) const {
-	InternalType amountInMinUnit = factorToMinimumUnit*amount;
+	InternalType amountInMinUnit = (InternalType)(factorToMinimumUnit*amount);
 	return DimensionedQuantity<InternalType>(*dimension, amountInMinUnit);
 }

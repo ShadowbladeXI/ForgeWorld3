@@ -8,7 +8,7 @@
 #include "ResourceQuantity.h"
 #include "ResourceList.h"
 
-enum ResourceManagerReturn :int { success = 0, errorNotEnoughResources = 1 };
+enum class ResourceManagerReturn : int { success = 0, errorNotEnoughResources = 1 };
 
 class ResourceManager {
 public:

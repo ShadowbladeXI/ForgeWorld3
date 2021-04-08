@@ -23,10 +23,10 @@ const ResourceQuantity<ResourcesInternalType>& ResourceManager::get(size_t i) co
 ResourceManagerReturn ResourceManager::add(size_t i, const ResourceQuantity<ResourcesInternalType>& toAdd) {
 	ResourceQuantity<ResourcesInternalType>& resource = resourceQuantityList.at(i);
 	if(resource.getQuantity() < -toAdd.getQuantity()) {
-		return errorNotEnoughResources;
+		return ResourceManagerReturn::errorNotEnoughResources;
 	} else {
 		resource += toAdd;
-		return success;
+		return ResourceManagerReturn::success;
 	}
 }
 
