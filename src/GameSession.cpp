@@ -1,6 +1,8 @@
 #include "../include/GameSession.h"
 
+#include "../include/ResourceFileHandler.h"
 #include <iostream>
+
 
 GameSession::GameSession()
 	: universe() 
@@ -12,6 +14,9 @@ GameSession::GameSession()
 		ResourceList testList = ResourceList();
 		std::cout<<testList.getSize();
 	}*/
+
+	//TODO: Remove, for test purposes only
+	ResourceFileHandler();
 
 	//TODO: Remove
 	//Only for test purposes of the resource management system
