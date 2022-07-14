@@ -1,6 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<testRoot>
+<Resources>
 	<testNode tag="testTag"/>
+
+	<Resource>
+		<Name>Coal</Name>
+		<Dimension>mass</Dimension>
+	</Resource>
+
+	<Resource>
+		<Name>Iron</Name>
+		<Dimension>mass</Dimension>
+	</Resource>
+
+	<Resource>
+		<Name>Steel</Name>
+		<Dimension>mass</Dimension>
+	</Resource>
 	
-	
-</testRoot>
+</Resources>

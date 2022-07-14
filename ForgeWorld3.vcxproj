@@ -19,6 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\dimensionUnitSystem\DimensionedQuantity.h" />
+    <ClInclude Include="include\dimensionUnitSystem\Dimensions.h" />
+    <ClInclude Include="include\dimensionUnitSystem\MetricPrefixUnit.h" />
+    <ClInclude Include="include\dimensionUnitSystem\Unit.h" />
+    <ClInclude Include="include\dimensionUnitSystem\Units.h" />
     <ClInclude Include="include\MapObject.fwd.h" />
     <ClInclude Include="include\MapObjectTypesManager.h" />
     <ClInclude Include="include\rapidxml-1.13\rapidxml.hpp" />
@@ -26,11 +31,10 @@
     <ClInclude Include="include\rapidxml-1.13\rapidxml_print.hpp" />
     <ClInclude Include="include\rapidxml-1.13\rapidxml_utils.hpp" />
     <ClInclude Include="include\ResourceFileHandler.h" />
+    <ClInclude Include="include\ResourceType.fwd.h" />
     <ClInclude Include="include\Territory.fwd.h" />
     <ClInclude Include="include\Window.h" />
     <ClCompile Include="src\Chunk.cpp" />
-    <ClCompile Include="src\Dimension.cpp" />
-    <ClCompile Include="src\DimensionedQuantity.cpp" />
     <ClCompile Include="src\ForgeWorld3.cpp" />
     <ClCompile Include="src\GameSession.cpp" />
     <ClCompile Include="src\MapObject.cpp" />
@@ -38,35 +42,29 @@
     <ClCompile Include="src\MapObjectTypesManager.cpp" />
     <ClCompile Include="src\Math.cpp" />
     <ClCompile Include="src\Planet.cpp" />
-    <ClCompile Include="src\Resource.cpp" />
+    <ClCompile Include="src\ResourceType.cpp" />
     <ClCompile Include="src\ResourceFileHandler.cpp" />
     <ClCompile Include="src\ResourceList.cpp" />
     <ClCompile Include="src\ResourceManager.cpp" />
     <ClCompile Include="src\ResourceQuantity.cpp" />
     <ClCompile Include="src\Territory.cpp" />
     <ClCompile Include="src\Tile.cpp" />
-    <ClCompile Include="src\Unit.cpp" />
-    <ClCompile Include="src\MetricUnit.cpp" />
     <ClCompile Include="src\Universe.cpp" />
     <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Chunk.h" />
-    <ClInclude Include="include\Dimension.h" />
-    <ClInclude Include="include\DimensionedQuantity.h" />
     <ClInclude Include="include\GameSession.h" />
     <ClInclude Include="include\MapObject.h" />
     <ClInclude Include="include\MapObjectPosition.h" />
     <ClInclude Include="include\Math.h" />
     <ClInclude Include="include\Planet.h" />
-    <ClInclude Include="include\Resource.h" />
+    <ClInclude Include="include\ResourceType.h" />
     <ClInclude Include="include\ResourceList.h" />
     <ClInclude Include="include\ResourceManager.h" />
     <ClInclude Include="include\ResourceQuantity.h" />
     <ClInclude Include="include\Territory.h" />
     <ClInclude Include="include\Tile.h" />
-    <ClInclude Include="include\Unit.h" />
-    <ClInclude Include="include\MetricUnit.h" />
     <ClInclude Include="include\Universe.h" />
   </ItemGroup>
   <ItemGroup>
@@ -142,7 +140,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

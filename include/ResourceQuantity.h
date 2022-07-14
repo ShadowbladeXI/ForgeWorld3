@@ -1,63 +1,83 @@
 #pragma once
 
+#include <string>
 #include <assert.h>
 
-#include "Resource.h"
-#include "DimensionedQuantity.h"
+#include "ResourceType.fwd.h"
 
-template <typename InternalType>
-class ResourceQuantity {
+class Resource_Abstract {
 public:
-	ResourceQuantity(const Resource<InternalType>& resource, DimensionedQuantity<InternalType> quantity)
-		: resource(resource), quantity(quantity) {
-		assert(&(resource.getDimension()) == &(quantity.getDimension()));
+	
+	virtual const ResourceType_Abstract& getResourceType() const = 0;
+	
+	virtual std::string toString() const = 0;
+
+	//TODO: Add other functions as virtual parent class functions
+};
+
+//TODO: Rename to "Resource"?
+template <typename Dimension>
+class ResourceQuantity : public Resource_Abstract{
+public:
+	ResourceQuantity(const ResourceType<Dimension>& resourceType, Dimension quantity)
+		: resourceType(resourceType), quantity(quantity) 
+	{
+
 	}
 
-	const Resource<InternalType>& getResource() const {
-		return resource;
+	ResourceQuantity(const ResourceType<Dimension>& resourceType)
+		: resourceType(resourceType), quantity(Dimension()) 
+	{
+		
 	}
-	const DimensionedQuantity<InternalType>& getQuantity() const {
+
+	const ResourceType<Dimension>& getResourceType() const override{
+		return resourceType;
+	}
+	const Dimension& getQuantity() const {
 		return quantity;
 	}
 
+	std::string toString() const override {
+		return getResourceType().getName() + getQuantity().toString();
+	}
+
 	//Math Functions
-	ResourceQuantity<InternalType> operator+() const {
-		return ResourceQuantity<InternalType>(resource, +quantity);
+	ResourceQuantity<Dimension> operator+() const {
+		return ResourceQuantity<Dimension>(resourceType, +quantity);
 	}
-	ResourceQuantity<InternalType> operator-() const {
-		return ResourceQuantity<InternalType>(resource, -quantity);
+	ResourceQuantity<Dimension> operator-() const {
+		return ResourceQuantity<Dimension>(resourceType, -quantity);
 	}
-	ResourceQuantity<InternalType> operator+(const ResourceQuantity<InternalType>& b) const {
-		assert(&resource == &b.resource);
-		return ResourceQuantity<InternalType>(resource, quantity+b.quantity);
+	ResourceQuantity<Dimension> operator+(const ResourceQuantity<Dimension>& b) const {
+		assert(&resourceType == &b.resourceType);
+		return ResourceQuantity<Dimension>(resourceType, quantity+b.quantity);
 	}
-	ResourceQuantity<InternalType> operator-(const ResourceQuantity<InternalType>& b) const {
-		assert(&resource == &b.resource);
-		return ResourceQuantity<InternalType>(resource, quantity-b.quantity);
+	ResourceQuantity<Dimension> operator-(const ResourceQuantity<Dimension>& b) const {
+		assert(&resourceType == &b.resourceType);
+		return ResourceQuantity<Dimension>(resourceType, quantity-b.quantity);
 	}
-	ResourceQuantity<InternalType>& operator+=(const ResourceQuantity<InternalType>& b) {
-		assert(&resource == &b.resource);
+	ResourceQuantity<Dimension>& operator+=(const ResourceQuantity<Dimension>& b) {
+		assert(&resourceType == &b.resourceType);
 		quantity += b.quantity;
 		return *this;
 	}
-	ResourceQuantity<InternalType>& operator-=(const ResourceQuantity<InternalType>& b) {
-		assert(&resource == &b.resource);
+	ResourceQuantity<Dimension>& operator-=(const ResourceQuantity<Dimension>& b) {
+		assert(&resourceType == &b.resourceType);
 		quantity -= b.quantity;
 		return *this;
 	}
-	ResourceQuantity<InternalType>& operator+=(const DimensionedQuantity<InternalType>& b) {
-		assert(&resource.dimension == &b.dimension);
+	ResourceQuantity<Dimension>& operator+=(const Dimension& b) {
 		quantity += b;
 		return *this;
 	}
-	ResourceQuantity<InternalType>& operator-=(const DimensionedQuantity<InternalType>& b) {
-		assert(&resource.dimension == &b.dimension);
+	ResourceQuantity<Dimension>& operator-=(const Dimension& b) {
 		quantity -= b;
 		return *this;
 	}
 
 private:
-	const Resource<InternalType>& resource;
-	DimensionedQuantity<InternalType> quantity;
+	const ResourceType<Dimension>& resourceType;
+	Dimension quantity;
 };
 

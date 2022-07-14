@@ -45,25 +45,13 @@
     <ClCompile Include="src\ResourceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Resource.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\DimensionedQuantity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Unit.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Dimension.cpp">
+    <ClCompile Include="src\ResourceType.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\ResourceQuantity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\ResourceList.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\MetricUnit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\MapObject.cpp">
@@ -104,25 +92,13 @@
     <ClInclude Include="include\ResourceManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\DimensionedQuantity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Unit.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Dimension.h">
+    <ClInclude Include="include\ResourceType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\ResourceQuantity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\ResourceList.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\MetricUnit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\MapObject.h">
@@ -156,6 +132,24 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\ResourceFileHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\dimensionUnitSystem\Unit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\dimensionUnitSystem\DimensionedQuantity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\dimensionUnitSystem\Units.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\dimensionUnitSystem\Dimensions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\dimensionUnitSystem\MetricPrefixUnit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ResourceType.fwd.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

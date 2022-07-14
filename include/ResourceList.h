@@ -2,29 +2,37 @@
 
 #include <vector>
 #include <iterator>
+#include <memory>
 
-#include "MetricUnit.h"
-#include "Dimension.h"
-#include "Resource.h"
+#include "dimensionUnitSystem/Dimensions.h"
+#include "ResourceType.h"
 #include "ResourceQuantity.h"
+#include "ResourceFileHandler.h"
 
-typedef long ResourcesInternalType;//Specify the internal type used for all resources
 class ResourceList {
 public:
-	ResourceList();
+	ResourceList(const ResourceFileHandler& resFileHandler);
 
 	size_t getSize() const;
-	const Resource<ResourcesInternalType>& get(size_t) const;
-	ResourceQuantity<ResourcesInternalType> generateNewResource(size_t, DimensionedQuantity<ResourcesInternalType>) const;
+	
+	const ResourceType_Abstract& get(size_t) const;
+	const size_t getResourceID_byName(std::string resourceName) const;
+	const ResourceType_Abstract& getResource_byName(std::string resourceName) const;
+
+
+	std::unique_ptr<Resource_Abstract> generateNewResource(size_t) const;
+	ResourceQuantity<Mass> generateNewResource(size_t, Mass) const;
 
 	~ResourceList();
-private:
-	std::vector<Resource<ResourcesInternalType>*> list;
 
 private:
-	MetricUnit gramm;
-	Dimension<ResourcesInternalType> mass;
-public:
-	const DimensionedUnit<ResourcesInternalType>& massGramm;
+	std::vector<ResourceType_Abstract*> list;
+	std::unordered_map<std::string, size_t> resourceIDs;
+	//TODO: Add unordered map for direct resource acess?
+	
+
+	//std::unordered_map<std::string, Unit> units;
+	//std::unordered_map<std::string, Dimension<ResourcesInternalType>> dimensions;
+
 };
 

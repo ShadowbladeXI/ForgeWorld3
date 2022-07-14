@@ -1,10 +1,12 @@
 #pragma once
 
 #include <vector>
+#include <memory>
 #include <iostream>
+#include <string>
 
-#include "Unit.h"
-#include "Resource.h"
+
+#include "dimensionUnitSystem/Dimensions.h"
 #include "ResourceQuantity.h"
 #include "ResourceList.h"
 
@@ -14,16 +16,16 @@ class ResourceManager {
 public:
 	ResourceManager(const ResourceList&);
 
-	const ResourceQuantity<ResourcesInternalType>& get(size_t i) const;
+	const Resource_Abstract& get(size_t i) const;
+	const Resource_Abstract& getResource_byName(std::string resourceName) const;
 
-	ResourceManagerReturn add(size_t i, const ResourceQuantity<ResourcesInternalType>& toAdd);
+	ResourceManagerReturn add(size_t i, const Resource_Abstract& toAdd);
 
 	//Debug Function
 	void printResourceQuantities() const;
-private:
-	
 
-	
-	std::vector<ResourceQuantity<ResourcesInternalType>> resourceQuantityList;
+private:
+	std::vector<std::unique_ptr<Resource_Abstract>> resourceQuantityList;
+	const ResourceList& resourceList;
 };
 

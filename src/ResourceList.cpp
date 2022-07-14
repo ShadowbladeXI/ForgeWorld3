@@ -1,32 +1,52 @@
 #include "..\include\ResourceList.h"
 
-ResourceList::ResourceList() 
-	: gramm(MetricUnit("g"))
-	, mass(Dimension<ResourcesInternalType>(gramm, 1000000))//Initialize mass dimension with ug as smalles unit)$
-	, massGramm(mass.getStandardDimensionedUnit())
-	, list(std::vector<Resource<ResourcesInternalType>*>())
+ResourceList::ResourceList(const ResourceFileHandler& resFileHandler)
+	: list(std::vector<ResourceType_Abstract*>())
+	//, units()
+	//, dimensions()
 {
+	//MetricUnit gramm("g");
+	//Dimension<ResourcesInternalType> mass(gramm, 1000000);//Initialize mass dimension with ug as smalles unit)$
+	//DimensionedUnit<ResourcesInternalType> massGramm(mass.getStandardDimensionedUnit());
+	
 	//TODO: Add capacity reserve for "list"
 	
-	//HACK: Test initialization with some example resources
-	list.push_back(new Resource<ResourcesInternalType>("Coal", mass));
-	list.push_back(new Resource<ResourcesInternalType>("Iron", mass));
-	list.push_back(new Resource<ResourcesInternalType>("Steel", mass));
-
-	list.shrink_to_fit();
+	resFileHandler.getAllResources_fromFiles(list);
 	
+	resourceIDs = std::unordered_map<std::string, size_t>();
+	for (int i = 0; i<list.size(); ++i) {
+		const ResourceType_Abstract* resType(list.at(i));
+		auto insertRes = resourceIDs.insert(std::pair(resType->getName(), i));
+		if (!insertRes.second) {
+			//Could not insert element
+			//TODO: Insert code for error handling
+		}
+	}
 }
 
 size_t ResourceList::getSize() const{
 	return list.size();
 }
 
-const Resource<ResourcesInternalType>& ResourceList::get(size_t i) const {
+const ResourceType_Abstract& ResourceList::get(size_t i) const {
 	return *list[i];
 }
 
-ResourceQuantity<ResourcesInternalType> ResourceList::generateNewResource(size_t i, DimensionedQuantity<ResourcesInternalType> quantity) const {
-	return ResourceQuantity<ResourcesInternalType>(get(i), quantity);
+const size_t ResourceList::getResourceID_byName(std::string resourceName) const{
+	return resourceIDs.find(resourceName)->second;
+}
+
+const ResourceType_Abstract& ResourceList::getResource_byName(std::string resourceName) const{
+	return get(getResourceID_byName(resourceName));
+}
+
+std::unique_ptr<Resource_Abstract> ResourceList::generateNewResource(size_t index) const{
+	return list.at(index)->createNewResource();
+}
+
+ResourceQuantity<Mass> ResourceList::generateNewResource(size_t i, Mass mass) const {
+	const auto& resourceType = dynamic_cast<const ResourceType<Mass>&>(get(i));//TODO: Replace with assert + static cast for speed in production version?
+	return ResourceQuantity<Mass>(resourceType, mass);
 }
 
 ResourceList::~ResourceList() {
